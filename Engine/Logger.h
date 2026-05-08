@@ -10,7 +10,11 @@ namespace HS
 	class Logger
 	{
 		public:
-			Logger() = default; 
 			void log(LogLevel level, std::string_view message); 
+
+		private:
+			Logger() = default; 
+
+		friend class Engine;
 	}; 
 }
