@@ -1,0 +1,74 @@
+[
+  {
+    "file": "./Engine.cpp",
+    "arguments": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-g",
+      "-dynamiclib",
+      "-install_name",
+      "/Users/trenttuedon/Development/projects/mhs/Engine/libhearthEngine.dylib",
+      "-I/opt/homebrew/include",
+      "./Engine.cpp",
+      "-o",
+      "libhearthEngine.dylib"
+    ],
+    "directory": "/Users/trenttuedon/Development/projects/mhs/Engine",
+    "output": "libhearthEngine.dylib"
+  },
+  {
+    "file": "./Logger.cpp",
+    "arguments": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-g",
+      "-dynamiclib",
+      "-install_name",
+      "/Users/trenttuedon/Development/projects/mhs/Engine/libhearthEngine.dylib",
+      "-I/opt/homebrew/include",
+      "./Logger.cpp",
+      "-o",
+      "libhearthEngine.dylib"
+    ],
+    "directory": "/Users/trenttuedon/Development/projects/mhs/Engine",
+    "output": "libhearthEngine.dylib"
+  },
+  {
+    "file": "./utility.cpp",
+    "arguments": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-g",
+      "-dynamiclib",
+      "-install_name",
+      "/Users/trenttuedon/Development/projects/mhs/Engine/libhearthEngine.dylib",
+      "-I/opt/homebrew/include",
+      "./utility.cpp",
+      "-o",
+      "libhearthEngine.dylib"
+    ],
+    "directory": "/Users/trenttuedon/Development/projects/mhs/Engine",
+    "output": "libhearthEngine.dylib"
+  },
+  {
+    "file": "./Renderer.cpp",
+    "arguments": [
+      "g++",
+      "-std=c++17",
+      "-Wall",
+      "-g",
+      "-dynamiclib",
+      "-install_name",
+      "/Users/trenttuedon/Development/projects/mhs/Engine/libhearthEngine.dylib",
+      "-I/opt/homebrew/include",
+      "./Renderer.cpp",
+      "-o",
+      "libhearthEngine.dylib"
+    ],
+    "directory": "/Users/trenttuedon/Development/projects/mhs/Engine",
+    "output": "libhearthEngine.dylib"
+  }
+]

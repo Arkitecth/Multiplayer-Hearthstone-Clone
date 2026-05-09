@@ -1,16 +1,22 @@
 #include "Logger.h"
-#define ENGINE HS::Engine::instance()
+#include "Renderer.h"
+#pragma once
+#define ENGINE HS::Engine::instance() 
 namespace HS
 {
 	class Engine
 	{
 		public:
 			static Engine& instance();
-			Logger& getLogger(); 
+			Logger* getLogger();
+			Renderer* getRenderer();
+			void Init(std::string_view title, int width, int height); 
+			~Engine(); 
 
 		private:
 			 Engine();
-			~Engine(); 
-			 Logger logger_; 
+			 bool isEngineRunning_{false};
+			 Logger* logger_; 
+			 HS::Renderer* renderer_; 
 	};
 }

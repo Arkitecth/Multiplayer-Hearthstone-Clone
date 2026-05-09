@@ -1,4 +1,6 @@
+#pragma once
 #include <string_view>
+
 namespace HS
 {
 	enum LogLevel
