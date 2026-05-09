@@ -6,9 +6,13 @@ LIBS=-lhearthEngine
 
 CXXFLAGS= -Wall -Wextra
 
+INC_SDL=`pkg-config --libs sdl3 --cflags sdl3`
+
+INCFLAGS= -I$(ENGINE_PATH)
+
 LDFLAGS= -L$(ENGINE_PATH) -Wl,-rpath,$(ENGINE_PATH) 
 
 EXE=test
 
 main: 
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(LIBS) main.cpp -o $(EXE)
+	$(CXX) $(INCFLAGS) $(INC_SDL) $(CXXFLAGS) $(LDFLAGS) $(LIBS) main.cpp -o $(EXE)

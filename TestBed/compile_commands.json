@@ -1,0 +1,17 @@
+[
+  {
+    "file": "main.cpp",
+    "arguments": [
+      "g++",
+      "-I/Users/trenttuedon/Development/projects/mhs/Engine",
+      "-I/opt/homebrew/include",
+      "-Wall",
+      "-Wextra",
+      "main.cpp",
+      "-o",
+      "test"
+    ],
+    "directory": "/Users/trenttuedon/Development/projects/mhs/TestBed",
+    "output": "test"
+  }
+]
