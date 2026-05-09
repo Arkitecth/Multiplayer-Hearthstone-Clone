@@ -91,12 +91,11 @@ namespace HS
 			KeyboardAction action_{KeyboardAction::UNDEFINED_ACTION}; 
 		
 		public:
-			EventKeyboard() = default; 
-			EventKeyboard(KeyboardKey key, KeyboardAction action); 
-			KeyboardKey    getKey(); 
+			EventKeyboard(); 
+			KeyboardKey    getKey() const; 
 			void	       setKey(KeyboardKey key); 
 			void	       setKey(std::string key); 
-			KeyboardAction getAction(); 
+			KeyboardAction getAction() const; 
 			void           setKeyboardAction(KeyboardAction action); 
 	}; 
 }

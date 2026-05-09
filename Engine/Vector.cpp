@@ -26,17 +26,17 @@ void HS::Vector::setY(double position_y)
 	position_y_ = position_y; 
 }
 
-HS::Vector HS::Vector::operator+(HS::Vector& rhs)
+HS::Vector HS::Vector::operator+(const HS::Vector& rhs)
 {
 	return HS::Vector{rhs.position_x_ + this->position_x_, rhs.position_y_ + this->position_y_};
 }
 
-HS::Vector HS::Vector::operator-(HS::Vector& rhs)
+HS::Vector HS::Vector::operator-(const HS::Vector& rhs)
 {
 	return HS::Vector{this->position_x_ - rhs.position_x_, rhs.position_y_ + this->position_y_};
 }
 
-bool HS::Vector::operator=(HS::Vector& rhs)
+bool HS::Vector::operator==(const HS::Vector& rhs)
 {
 	return this->position_x_ == rhs.position_x_ && this->position_y_ == rhs.position_y_; 
 }

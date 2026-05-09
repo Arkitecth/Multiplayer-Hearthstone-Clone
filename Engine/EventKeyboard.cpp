@@ -1,13 +1,11 @@
 #include "EventKeyboard.h"
 
-HS::EventKeyboard::EventKeyboard(KeyboardKey key, KeyboardAction action)
+HS::EventKeyboard::EventKeyboard()
 {
-	key_ = key;
-	action_ = action;
+	setType(KEYBOARD_EVENT); 
 }
 
-
-HS::KeyboardKey HS::EventKeyboard::getKey()
+HS::KeyboardKey HS::EventKeyboard::getKey() const
 {
 	return key_;
 }
@@ -17,7 +15,7 @@ void HS::EventKeyboard::setKey(KeyboardKey key)
 	key_ = key;
 }
 
-HS::KeyboardAction HS::EventKeyboard::getAction()
+HS::KeyboardAction HS::EventKeyboard::getAction() const
 {
 	return action_;
 }

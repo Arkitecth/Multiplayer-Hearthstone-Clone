@@ -16,6 +16,14 @@ void HS::World::addEntity(Entity* entity)
 	entities.push_back(entity); 
 }
 
+void HS::World::renderEntities()
+{
+	for(int i = 0; i < entities.size(); i++)
+	{
+		entities[i]->draw();
+	}
+}
+
 void HS::World::removeEntity(Entity* entity)
 {
 	auto it = std::remove(entities.begin(), entities.end(), entity); 

@@ -9,7 +9,7 @@ const std::string UNDEFINED_TYPE = "undefined";
 	class Entity
 	{
 		private:
-			Vector position_{};
+			HS::Vector position_{};
 			float width_{};
 			float height_{};
 			std::string type_{UNDEFINED_TYPE};
@@ -22,7 +22,7 @@ const std::string UNDEFINED_TYPE = "undefined";
 			void	     setHeight(float height); 
 			std::string  getType(); 
 			void         setType(std::string_view type); 
-			virtual      ~Entity(); 
+			virtual      ~Entity() = default; 
 			virtual void draw() = 0; 
 			virtual void update(const HS::Event* e) = 0; 
 	}; 

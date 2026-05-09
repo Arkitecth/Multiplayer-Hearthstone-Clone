@@ -1,4 +1,4 @@
-#include "Engine.h"
+#pragma once
 namespace HS
 {
 	class Controller

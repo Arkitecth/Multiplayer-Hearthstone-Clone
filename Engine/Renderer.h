@@ -6,14 +6,15 @@ namespace HS
 	class Renderer
 	{
 		public:
-			void drawRectangle(); 
+			void drawRectangle(float x, float y, float width, float height); 
 			void drawTexture(); 
 			void drawCard(); 
 			void getWindowTitle(); 
+			void swapBuffers();
 
 		private:
-			int width_{}; 
-			int height_{};
+			int window_width_{}; 
+			int window_height_{};
 			SDL_Window* window_{};
 			SDL_Renderer* renderer_{};
 			std::string title_{};

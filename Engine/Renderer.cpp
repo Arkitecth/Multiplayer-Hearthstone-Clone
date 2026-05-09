@@ -5,8 +5,8 @@
 HS::Renderer::Renderer(std::string_view title, int width, int height)
 {
 	title_ = title;
-	width_ = width;
-	height_ = height;
+	window_width_ = width;
+	window_height_ = height;
 	bool success = SDL_CreateWindowAndRenderer(title.data(), width, height, SDL_WINDOW_RESIZABLE, &window_, &renderer_); 
 	if (!success) 
 	{
@@ -15,9 +15,21 @@ HS::Renderer::Renderer(std::string_view title, int width, int height)
 	}
 }
 
-void HS::Renderer::drawRectangle()
+void HS::Renderer::drawRectangle(float x, float y, float width, float height)
 {
-	drawRectangle();
+	SDL_FRect rect{x, y, width, height}; 
+	SDL_SetRenderDrawColor(renderer_,  255, 0,  0, 1); 
+	SDL_RenderRect(renderer_, &rect); 
 }
+
+
+void HS::Renderer::swapBuffers()
+{
+	SDL_RenderPresent(renderer_); 
+	SDL_SetRenderDrawColor(renderer_,  0, 0,  0, 1); 
+	SDL_RenderClear(renderer_); 
+}
+
+
 
 

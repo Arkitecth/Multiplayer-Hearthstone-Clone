@@ -1,3 +1,4 @@
+#include "Controller.h"
 #include "Logger.h"
 #include "Renderer.h"
 #include "World.h"
@@ -9,10 +10,13 @@ namespace HS
 	{
 		public:
 			static Engine& instance();
-			Logger* getLogger();
-			Renderer* getRenderer();
-			World* getWorld(); 
+			Logger*     getLogger();
+			Renderer*   getRenderer();
+			Controller* getController(); 
+			World*	    getWorld(); 
 			void Init(std::string_view title, int width, int height); 
+			void setIsEngineRunning(bool value); 
+			bool getIsEngineRunning(); 
 			void Run(); 
 			~Engine(); 
 
@@ -21,6 +25,7 @@ namespace HS
 			 bool isEngineRunning_{false};
 			 Logger* logger_; 
 			 Renderer* renderer_; 
+			 Controller* controller_;
 			 World* world_; 
 
 	};

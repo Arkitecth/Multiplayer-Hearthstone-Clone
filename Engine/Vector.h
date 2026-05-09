@@ -9,9 +9,9 @@ namespace HS
 			void   setX(double position_x); 
 			void   setY(double position_y); 
 
-			Vector operator+(HS::Vector& rhs); 
-			Vector operator-(HS::Vector& rhs); 
-			bool   operator=(HS::Vector& rhs); 
+			Vector operator+(const HS::Vector& rhs); 
+			Vector operator-(const HS::Vector& rhs); 
+			bool   operator==(const HS::Vector& rhs); 
 			Vector() = default; 
 			Vector(double position_x, double positon_y); 
 

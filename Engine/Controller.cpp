@@ -1,5 +1,5 @@
-#include "Controller.h"
 #include "EventKeyboard.h"
+#include "Controller.h"
 #include "Engine.h"
 #include <SDL3/SDL.h>
 
@@ -10,7 +10,7 @@ void HS::Controller::pollInput()
 		
 		if (e.type == SDL_EVENT_QUIT) 
 		{
-
+			ENGINE.setIsEngineRunning(false); 
 		}
 		if (e.type == SDL_EVENT_KEY_DOWN) {
 			EventKeyboard keyboardEvent; 
@@ -18,7 +18,6 @@ void HS::Controller::pollInput()
 			keyboardEvent.setKeyboardAction(KeyboardAction::KEY_PRESSED); 
 			ENGINE.getWorld()->broadcastEvent(dynamic_cast<Event*>(&keyboardEvent)); 
 		}
-
 
 		else if (e.type == SDL_EVENT_KEY_UP) {
 			EventKeyboard keyboardEvent; 
@@ -55,5 +54,6 @@ void HS::Controller::pollInput()
 		// 	LEM.getCurrentLevel()->broadcastEvent(dynamic_cast<Event*>(&mouseEvent)); 
 		// }
 
+}
 }
 
