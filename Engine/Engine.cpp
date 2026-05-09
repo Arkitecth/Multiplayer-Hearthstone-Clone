@@ -18,8 +18,9 @@ HS::Engine::Engine()
 
 void HS::Engine::Init(std::string_view title, int width, int height)
 {
-	logger_ = new Logger();
+	logger_ =   new Logger();
 	renderer_ = new Renderer(title, width, height); 
+	world_ =    new World(); 
 	isEngineRunning_ = true;
 }
 
@@ -35,9 +36,15 @@ HS::Renderer* HS::Engine::getRenderer()
 
 HS::Engine::~Engine()
 {
+	delete world_; 
 	delete renderer_;
 	delete logger_; 
+	
 }
 
+void HS::Engine::Run()
+{
+
+}
 
 
