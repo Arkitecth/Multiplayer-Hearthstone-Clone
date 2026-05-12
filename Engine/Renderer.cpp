@@ -8,6 +8,7 @@ HS::Renderer::Renderer(std::string_view title, int width, int height)
 	window_width_ = width;
 	window_height_ = height;
 	bool success = SDL_CreateWindowAndRenderer(title.data(), width, height, SDL_WINDOW_RESIZABLE, &window_, &renderer_); 
+	SDL_SetRenderVSync(renderer_, 1); 
 	if (!success) 
 	{
 		ENGINE.getLogger()->log(ERROR, SDL_GetError()); 

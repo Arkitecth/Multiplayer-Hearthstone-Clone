@@ -4,8 +4,8 @@ namespace HS
 	class Vector
 	{
 		public:
-			double getX(); 
-			double getY(); 
+			double getX() const; 
+			double getY() const; 
 			void   setX(double position_x); 
 			void   setY(double position_y); 
 

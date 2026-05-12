@@ -10,19 +10,23 @@ namespace HS
 	{
 		public:
 			static Engine& instance();
-			Logger*     getLogger();
-			Renderer*   getRenderer();
-			Controller* getController(); 
-			World*	    getWorld(); 
+			Logger*     getLogger() const;
+			Renderer*   getRenderer() const;
+			Controller* getController() const; 
+			World*	    getWorld() const; 
 			void Init(std::string_view title, int width, int height); 
 			void setIsEngineRunning(bool value); 
-			bool getIsEngineRunning(); 
+			bool getIsEngineRunning() const; 
+			float getFPS(); 
+			void setFPS(float new_fps); 
+			
 			void Run(); 
 			~Engine(); 
 
 		private:
 			 Engine();
 			 bool isEngineRunning_{false};
+			 float fps_; 
 			 Logger* logger_; 
 			 Renderer* renderer_; 
 			 Controller* controller_;

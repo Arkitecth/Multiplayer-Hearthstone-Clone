@@ -9,15 +9,15 @@ namespace HS
 			void drawRectangle(float x, float y, float width, float height); 
 			void drawTexture(); 
 			void drawCard(); 
-			void getWindowTitle(); 
+			void getWindowTitle() const; 
 			void swapBuffers();
 
 		private:
-			int window_width_{}; 
-			int window_height_{};
-			SDL_Window* window_{};
+			int	      window_width_{}; 
+			int           window_height_{};
+			SDL_Window*   window_{};
 			SDL_Renderer* renderer_{};
-			std::string title_{};
+			std::string   title_{};
 			Renderer(std::string_view title, int width, int height); 
 
 		friend class Engine; 

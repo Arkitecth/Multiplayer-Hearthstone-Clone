@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-HS::Vector HS::Entity::getPosition()
+HS::Vector HS::Entity::getPosition() const
 {
 	return position_;
 }
@@ -8,7 +8,7 @@ void HS::Entity::setPosition(Vector position)
 {
 	position_ = position;  
 }
-float HS::Entity::getWidth()
+float HS::Entity::getWidth() const
 {
 	return width_;
 }
@@ -17,7 +17,7 @@ void  HS::Entity::setHeight(float height)
 	height_ = height;
 }
 
-std::string HS::Entity::getType()
+std::string HS::Entity::getType() const
 {
 	return type_; 
 }

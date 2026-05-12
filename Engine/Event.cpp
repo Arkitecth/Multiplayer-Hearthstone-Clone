@@ -12,7 +12,6 @@ void HS::Event::setType(std::string type)
 	type_ = type; 
 }
 
-
 std::string HS::Event::getType() const
 {
 	return type_; 

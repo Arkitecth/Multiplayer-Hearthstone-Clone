@@ -38,7 +38,7 @@ void HS::World::removeEntity(Entity* entity)
 	}
 }
 
-std::vector<HS::Entity*> HS::World::getEntities(std::string_view type)
+std::vector<HS::Entity*> HS::World::getEntities(std::string_view type) const
 {
 	std::vector<Entity*> new_entities{};
 	for(int i = 0; i < entities.size(); i++)
@@ -51,7 +51,7 @@ std::vector<HS::Entity*> HS::World::getEntities(std::string_view type)
 	return new_entities;
 }
 
-std::vector<HS::Entity*> HS::World::getAllEntities(std::string_view type)
+std::vector<HS::Entity*> HS::World::getAllEntities(std::string_view type) const
 {
 	std::vector<Entity*> new_entities{};
 	for(int i = 0; i < entities.size(); i++)
@@ -59,8 +59,8 @@ std::vector<HS::Entity*> HS::World::getAllEntities(std::string_view type)
 		new_entities.push_back(entities[i]); 
 	}
 	return new_entities;
-
 }
+
 void HS::World::broadcastEvent(const Event* e)
 {
 	for(int i = 0; i < entities.size(); i++)

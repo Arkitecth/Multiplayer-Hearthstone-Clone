@@ -7,11 +7,11 @@ HS::Vector::Vector(double position_x, double position_y)
 	position_y_ = position_y;
 }
 
-double HS::Vector::getX()
+double HS::Vector::getX() const
 {
 	return position_x_;
 }
-double HS::Vector::getY()
+double HS::Vector::getY() const
 {
 	return position_y_;
 }

@@ -16,11 +16,11 @@ const std::string UNDEFINED_TYPE = "undefined";
 		
 		public:
 			Entity() = default; 
-			Vector       getPosition(); 
+			Vector       getPosition() const; 
 			void         setPosition(Vector position); 
-			float        getWidth(); 
+			float        getWidth() const; 
 			void	     setHeight(float height); 
-			std::string  getType(); 
+			std::string  getType() const; 
 			void         setType(std::string_view type); 
 			virtual      ~Entity() = default; 
 			virtual void draw() = 0; 
