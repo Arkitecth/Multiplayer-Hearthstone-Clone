@@ -28,5 +28,7 @@ void HS::Entity::setType(std::string_view type)
 
 void HS::Entity::draw(){}
 
-void HS::Entity::update(const HS::Event* e){}
+void HS::Entity::update(){}
+
+void HS::Entity::eventHandler(const HS::Event* e){}
 

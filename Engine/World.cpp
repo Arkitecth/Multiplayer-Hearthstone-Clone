@@ -61,10 +61,18 @@ std::vector<HS::Entity*> HS::World::getAllEntities(std::string_view type) const
 	return new_entities;
 }
 
+void HS::World::update()
+{
+	for(int i = 0; i < entities.size(); i++)
+	{
+		entities[i]->update(); 
+	}
+}
+
 void HS::World::broadcastEvent(const Event* e)
 {
 	for(int i = 0; i < entities.size(); i++)
 	{
-		entities[i]->update(e);
+		entities[i]->eventHandler(e);
 	}
 }

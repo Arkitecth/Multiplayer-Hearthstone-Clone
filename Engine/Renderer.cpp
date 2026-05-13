@@ -4,7 +4,7 @@
 
 HS::Renderer::Renderer(std::string_view title, int width, int height)
 {
-	title_ = title;
+	window_title_ = title;
 	window_width_ = width;
 	window_height_ = height;
 	bool success = SDL_CreateWindowAndRenderer(title.data(), width, height, SDL_WINDOW_RESIZABLE, &window_, &renderer_); 
@@ -23,6 +23,10 @@ void HS::Renderer::drawRectangle(float x, float y, float width, float height)
 	SDL_RenderRect(renderer_, &rect); 
 }
 
+std::string HS::Renderer::getWindowTitle() const
+{
+	return window_title_;
+}
 
 void HS::Renderer::swapBuffers()
 {
@@ -31,6 +35,20 @@ void HS::Renderer::swapBuffers()
 	SDL_RenderClear(renderer_); 
 }
 
+SDL_Renderer* HS::Renderer::getSDLRenderer() const
+{
+	return renderer_;
+}
+
+void HS::Renderer::drawTexture(HS::Texture& texture)
+{
+	SDL_RenderTexture(renderer_, texture.getTexture(), const SDL_FRect *srcrect, const SDL_FRect *dstrect)
+}
+
+void HS::Renderer::drawCard()
+{
+
+}
 
 
 

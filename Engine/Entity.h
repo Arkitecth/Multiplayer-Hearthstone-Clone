@@ -23,7 +23,8 @@ const std::string UNDEFINED_TYPE = "undefined";
 			std::string  getType() const; 
 			void         setType(std::string_view type); 
 			virtual      ~Entity() = default; 
-			virtual void draw() = 0; 
-			virtual void update(const HS::Event* e) = 0; 
+			virtual	void draw() = 0; 
+			virtual void update() = 0; 
+			virtual void eventHandler(const HS::Event* e) = 0; 
 	}; 
 }

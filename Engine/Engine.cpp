@@ -1,10 +1,8 @@
 #include "Engine.h"
 #include "Logger.h"
 #include <cassert>
-#include <chrono>
-#include <ratio>
 #include <string>
-#include <thread>
+#include "Clock.h"
 
 HS::Engine& HS::Engine::instance()
 {
@@ -61,7 +59,7 @@ bool HS::Engine::getIsEngineRunning() const
 	return isEngineRunning_;
 }
 
-float HS::Engine::getFPS()
+float HS::Engine::getFPS() const
 {
 	return fps_;
 }
@@ -82,29 +80,22 @@ HS::Engine::~Engine()
 
 void HS::Engine::Run()
 {
-	auto lastTime = std::chrono::steady_clock::now();
-	const std::chrono::duration<float> frameTarget{1000.0f / fps_}; // 60fps target
-
+	Clock clock{}; 
 	while (isEngineRunning_) 
 	{
-	    auto frameStart = std::chrono::steady_clock::now();
-	    std::chrono::duration<float> deltaTime = frameStart - lastTime;
-	    lastTime = frameStart;
+		clock.start();
+		controller_->pollInput(); 
+		world_->update();
+		world_->renderEntities();
+		renderer_->swapBuffers();
 
-	    controller_->pollInput();
-	    world_->renderEntities();
-	    renderer_->swapBuffers();
+		auto deltaTime = clock.delta(); 
 
-	    auto frameEnd = std::chrono::steady_clock::now();
-	    auto timeUsed = frameEnd - frameStart;
-	    auto sleepTime = frameTarget - timeUsed;
+		clock.sleepUntilNextFrame(fps_); 
 
-	    if (sleepTime.count() > 0) {
-		std::this_thread::sleep_for(sleepTime);
-	    }
+		float actualFps = 1.0f / deltaTime.count();
 
-	    float actualFps = 1.0f / deltaTime.count();
-	    logger_->log(INFO, "FPS:" + std::to_string(actualFps)); 
+		logger_->log(INFO, "FPS:" + std::to_string(actualFps)); 
 	}
 }
 

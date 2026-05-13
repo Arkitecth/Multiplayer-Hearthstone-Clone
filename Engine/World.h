@@ -17,5 +17,6 @@ namespace HS
 			std::vector<Entity*> getEntities(std::string_view type) const;  
 			std::vector<Entity*> getAllEntities(std::string_view type) const;  
 			void broadcastEvent(const Event* e); 
+			void update(); 
 	}; 
 }

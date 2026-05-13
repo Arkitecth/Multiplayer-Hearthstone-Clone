@@ -1,5 +1,6 @@
 #include <string>
 #include <SDL3/SDL.h>
+#include "Texture.h"
 #pragma once
 namespace HS
 {
@@ -7,9 +8,10 @@ namespace HS
 	{
 		public:
 			void drawRectangle(float x, float y, float width, float height); 
-			void drawTexture(); 
+			void drawTexture(Texture& texture); 
 			void drawCard(); 
-			void getWindowTitle() const; 
+			std::string  getWindowTitle() const; 
+			SDL_Renderer* getSDLRenderer() const; 
 			void swapBuffers();
 
 		private:
@@ -17,7 +19,7 @@ namespace HS
 			int           window_height_{};
 			SDL_Window*   window_{};
 			SDL_Renderer* renderer_{};
-			std::string   title_{};
+			std::string   window_title_{};
 			Renderer(std::string_view title, int width, int height); 
 
 		friend class Engine; 
