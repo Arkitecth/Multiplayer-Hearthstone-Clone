@@ -1,17 +1,18 @@
 #include "Vector.h"
 
 
-HS::Vector::Vector(double position_x, double position_y)
+HS::Vector::Vector(float position_x, float position_y)
 {
 	position_x_ = position_x;
 	position_y_ = position_y;
 }
 
-double HS::Vector::getX() const
+float HS::Vector::getX() const
 {
 	return position_x_;
 }
-double HS::Vector::getY() const
+
+float HS::Vector::getY() const
 {
 	return position_y_;
 }

@@ -1,6 +1,7 @@
 #include <string>
 #include <SDL3/SDL.h>
 #include "Texture.h"
+#include "Rectangle.h"
 #pragma once
 namespace HS
 {

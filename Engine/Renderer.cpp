@@ -1,6 +1,7 @@
 #include "Renderer.h"
 #include "Engine.h"
 #include <SDL3/SDL.h>
+#include <cstddef>
 
 HS::Renderer::Renderer(std::string_view title, int width, int height)
 {
@@ -42,7 +43,8 @@ SDL_Renderer* HS::Renderer::getSDLRenderer() const
 
 void HS::Renderer::drawTexture(HS::Texture& texture)
 {
-	SDL_RenderTexture(renderer_, texture.getTexture(), const SDL_FRect *srcrect, const SDL_FRect *dstrect)
+	SDL_FRect dstRect{texture.getPosition().getX(), texture.getPosition().getY(), texture.getWidth(), texture.getHeight()};
+	SDL_RenderTexture(renderer_, texture.getTexture(), NULL, &dstRect); 
 }
 
 void HS::Renderer::drawCard()

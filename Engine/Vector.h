@@ -4,8 +4,8 @@ namespace HS
 	class Vector
 	{
 		public:
-			double getX() const; 
-			double getY() const; 
+			float  getX() const; 
+			float  getY() const; 
 			void   setX(double position_x); 
 			void   setY(double position_y); 
 
@@ -13,11 +13,11 @@ namespace HS
 			Vector operator-(const HS::Vector& rhs); 
 			bool   operator==(const HS::Vector& rhs); 
 			Vector() = default; 
-			Vector(double position_x, double positon_y); 
+			Vector(float position_x, float positon_y); 
 
 		private:
-			double position_x_{};
-			double position_y_{};
+			float position_x_{};
+			float position_y_{};
 	}; 
 }
 
