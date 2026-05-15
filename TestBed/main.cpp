@@ -4,6 +4,7 @@
 #include "Event.h"
 #include "EventKeyboard.h"
 #include "Logger.h"
+#include "Texture.h"
 void TestLogger()
 {
 	ENGINE.getLogger()->log(HS::ERROR, "My Error"); 
@@ -28,28 +29,72 @@ void TestRenderer()
 
 			void draw()
 			{
-				ENGINE.getRenderer()->drawRectangle(this->getPosition().getX(), this->getPosition().getY(), 100, 100); 
+				HS::Texture texture{"Wood_Texture.png", this->getPosition(), 150, 150};
+				ENGINE.getRenderer()->drawTexture(texture); 
 			}
 
-			void update(const HS::Event* e)
+			void update() 
+			{
+				HS::Vector direction{0, -0.1};
+
+				HS::Vector new_position = direction + this->getPosition(); 
+
+				this->setPosition(new_position); 
+			};
+			void eventHandler(const HS::Event* e)
 			{
 				if (e->getType() == HS::KEYBOARD_EVENT) 
 				{
 					const HS::EventKeyboard* keyEvent = dynamic_cast<const HS::EventKeyboard*>(e);
 
-					if (keyEvent->getKey() == HS::KeyboardKey::W) 
+					if (keyEvent->getAction() == HS::KeyboardAction::KEY_PRESSED) 
 					{
-						ENGINE.getLogger()->log(HS::INFO, "HERE"); 
-						HS::Vector up{0, -1};
+						if (keyEvent->getKey() == HS::KeyboardKey::W) 
+						{
+							HS::Vector direction{0, -30};
 
-						HS::Vector new_position = up + this->getPosition(); 
+							HS::Vector new_position = direction + this->getPosition(); 
 
-						this->setPosition(new_position);
+							this->setPosition(new_position);
 
-						ENGINE.getLogger()->log(HS::INFO, std::to_string(new_position.getY()));
-					}
+							ENGINE.getLogger()->log(HS::INFO, std::to_string(new_position.getY()));
+						}
+
+						if (keyEvent->getKey() == HS::KeyboardKey::A) 
+						{
+							HS::Vector direction{-30, 0};
+
+							HS::Vector new_position = direction + this->getPosition(); 
+
+							this->setPosition(new_position);
+
+							ENGINE.getLogger()->log(HS::INFO, std::to_string(new_position.getY()));
+						}
+
+						if (keyEvent->getKey() == HS::KeyboardKey::S) 
+						{
+							HS::Vector direction{0, 30};
+
+							HS::Vector new_position = direction + this->getPosition(); 
+
+							this->setPosition(new_position);
+
+							ENGINE.getLogger()->log(HS::INFO, std::to_string(new_position.getY()));
+						}
+
+						if (keyEvent->getKey() == HS::KeyboardKey::D) 
+						{
+							HS::Vector direction{30, 0};
+
+							HS::Vector new_position = direction + this->getPosition(); 
+
+							this->setPosition(new_position);
+
+							ENGINE.getLogger()->log(HS::INFO, std::to_string(new_position.getY()));
+						}
 				}
 			}
+		}
 	}; 
 
 	Square* square{new Square};
