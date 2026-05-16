@@ -11,14 +11,7 @@ HS::Engine& HS::Engine::instance()
 	return engine;
 }
 
-HS::Engine::Engine()
-{
-	if (!isEngineRunning_) 
-	{
-		Init("Hearth Engine", 500, 500); 
-		fps_ = 60.0f;
-	}
-}
+HS::Engine::Engine(){}
 
 void HS::Engine::Init(std::string_view title, int width, int height)
 {
@@ -26,7 +19,7 @@ void HS::Engine::Init(std::string_view title, int width, int height)
 	world_ =      new   World(); 
 	renderer_ =   new   Renderer(title, width, height); 
 	controller_ = new   Controller();
-	isEngineRunning_ = true;
+	fps_ = 60.0f;
 }
 
 HS::Logger* HS::Engine::getLogger() const
@@ -81,6 +74,7 @@ HS::Engine::~Engine()
 void HS::Engine::Run()
 {
 	Clock clock{}; 
+	isEngineRunning_ = true;
 	while (isEngineRunning_) 
 	{
 		clock.start();
