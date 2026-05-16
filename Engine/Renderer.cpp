@@ -47,6 +47,16 @@ void HS::Renderer::drawTexture(HS::Texture& texture)
 	SDL_RenderTexture(renderer_, texture.getTexture(), NULL, &dstRect); 
 }
 
+int HS::Renderer::getWindowWidth() const
+{
+	return window_width_; 
+}
+
+int HS::Renderer::getWindowHeight() const
+{
+	return window_height_;
+}
+
 void HS::Renderer::drawCard()
 {
 

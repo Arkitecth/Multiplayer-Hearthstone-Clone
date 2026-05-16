@@ -12,6 +12,8 @@ namespace HS
 			void drawTexture(Texture& texture); 
 			void drawCard(); 
 			std::string  getWindowTitle() const; 
+			int  getWindowWidth() const; 
+			int  getWindowHeight() const; 
 			SDL_Renderer* getSDLRenderer() const; 
 			void swapBuffers();
 
