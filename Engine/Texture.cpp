@@ -19,6 +19,16 @@ HS::Texture::Texture(std::string_view filePath, Vector position, float width, fl
 	SDL_DestroySurface(surface); 
 }
 
+// HS::Texture::Texture(std::string_view filePath)
+// {
+// 	SDL_Surface* surface = SDL_LoadPNG(filePath.data()); 
+// 	if (!surface) 
+// 	{
+// 		ENGINE.getLogger()->log(ERROR, SDL_GetError()); 
+// 	} 
+// 	SDL_DestroySurface(surface); 
+// }
+
 SDL_Texture* HS::Texture::getTexture() const
 {
 	return texture_;
@@ -37,4 +47,19 @@ float HS::Texture::getWidth() const
 float HS::Texture::getHeight() const
 {
 	return height_;
+}
+
+void HS::Texture::setWidth(float width)
+{
+	width_ = width;
+}
+
+void HS::Texture::setHeight(float height)
+{
+	height_ = height;
+}
+
+void HS::Texture::setPosition(Vector position)
+{
+	position_ = position;
 }
